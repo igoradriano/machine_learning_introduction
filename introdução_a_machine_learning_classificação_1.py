@@ -5,6 +5,9 @@ Original file is located at
     https://colab.research.google.com/drive/1XlWBwDX3OsVi2O6oz91bXGttyhlztOIN
 # **1 - DADOS DE TREINAMENTO**
 """
+#pyinstaller --onefile nome_arquivo.py -> transformar em .exe
+#pyinstaller --onefile --noconsole nome_arquivo.py -> transformar em .exe sem console
+#pyinstaller --onefile -w nome_arquivo.py -> transformar em .exe com janela UI
 
 # features (1 sim, 0 não)
 # longo?
@@ -25,6 +28,7 @@ train_y = [1,1,1,0,0,0]
 """# **2 - Importando SKLEARN**"""
 
 from sklearn.svm import LinearSVC
+import time
 
 model = LinearSVC()
 model.fit(train_x, train_y)
@@ -59,3 +63,4 @@ print('Taxa de acerto: ', round(taxa_de_acerto * 100,2),'%')
 from sklearn.metrics import accuracy_score
 taxa_de_acerto = accuracy_score(teste_y, previsoes)
 print('Taxa de acerto: ', round(taxa_de_acerto *100,2),'%' )
+time.sleep(10)
